@@ -1,0 +1,20 @@
+
+This is apparently ARM's armulator.  I got it from gdb.
+
+I ripped out all the v5, v6, etc stuff, ripped out Xscale and 26 bit
+arm.  Ripped out coprocessor stuff, leaving an arm v4T. blx is a
+v5 instruction so make sure you specify -march=armv4t otherwise your
+(thumb) code may not work.
+
+I have both the arm and thumb test programs working, and I ran 
+asteroids on it which wasnt a trivial thing so it is not completely
+broken.  I may still have holes in it though, not having a blx 
+instruction took me a while to figure out.
+
+armulator.c is an example of how to use this instruction set simulator.
+
+Use the PutWord and GetWord functions for hooks into implmenting
+your own peripherals.
+
+David
+
